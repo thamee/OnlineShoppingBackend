@@ -16,9 +16,12 @@ namespace OnlineShoppingDbContext.Entities
         [Required]
         public int Quantity { get; set; }
 
-        
+        public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }
+
+        public bool IsOrdered { get; set; }
+
 
         public Product Product { get; set; }
 

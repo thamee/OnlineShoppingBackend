@@ -144,3 +144,4 @@ C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlinePortal.Api\obj\
 C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlinePortal.Api\obj\Debug\netcoreapp3.1\OnlinePortal.Api.dll
 C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlinePortal.Api\obj\Debug\netcoreapp3.1\OnlinePortal.Api.pdb
 C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlinePortal.Api\obj\Debug\netcoreapp3.1\OnlinePortal.Api.genruntimeconfig.cache
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlinePortal.Api\bin\Debug\netcoreapp3.1\IdentityModel.dll

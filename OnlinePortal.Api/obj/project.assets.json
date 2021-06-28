@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "IdentityModel/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/IdentityModel.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IdentityModel.dll": {}
+        }
+      },
       "jose-jwt/3.1.1": {
         "type": "package",
         "dependencies": {
@@ -2239,6 +2251,25 @@
     }
   },
   "libraries": {
+    "IdentityModel/3.1.0": {
+      "sha512": "r+mZKYQTL33k8ehcma3tmK0qEqM8OzO/cDZvqEorkmTrsnBccvUyNlfDZ+Ozgw9kR+YJP7J9v4+JBLEBekK0aQ==",
+      "type": "package",
+      "path": "identitymodel/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "identitymodel.3.1.0.nupkg.sha512",
+        "identitymodel.nuspec",
+        "lib/net452/IdentityModel.dll",
+        "lib/net452/IdentityModel.xml",
+        "lib/net461/IdentityModel.dll",
+        "lib/net461/IdentityModel.xml",
+        "lib/netstandard1.4/IdentityModel.dll",
+        "lib/netstandard1.4/IdentityModel.xml",
+        "lib/netstandard2.0/IdentityModel.dll",
+        "lib/netstandard2.0/IdentityModel.xml"
+      ]
+    },
     "jose-jwt/3.1.1": {
       "sha512": "VG1ucVqH8XTgie3kCOYZH07rbdyQm2N6iYpMgIOZYU1TfroiEJNr68k44YrzCwAUh4wYWEbub0nZDltIiisCZg==",
       "type": "package",
@@ -7576,6 +7607,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "IdentityModel >= 3.1.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.16",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
@@ -7630,6 +7662,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "IdentityModel": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[3.1.0, )"

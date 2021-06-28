@@ -14,28 +14,48 @@ namespace OnlinePortal.Api.Services.Sales
     public class SalesService : ISalesService
     {
         private readonly ApplicationDbContext _onlinePortalContext;
-        public  SalesService(ApplicationDbContext onlinePortalContext)
+        public SalesService(ApplicationDbContext onlinePortalContext)
         {
             _onlinePortalContext = onlinePortalContext;
 
-            }
+        }
 
-        public async Task<int> CreateSalesAsync(CreateSalesDto sales, ApplicationUser user)
+        public async Task<int> CreateSalesAsync(CreateSalesDto sales, string userId)
         {
 
             var product = await _onlinePortalContext.Products.SingleOrDefaultAsync(s => s.Id == sales.ProductId);
-            if (product == null || string.IsNullOrEmpty(product?.Name)) // checks Product valid
+            if (product == null || string.IsNullOrEmpty(product?.Name))
                 throw new BadRequestException("Can't Create Sales");
-            var salesProduct = new MemberProduct
+
+            var existingProductSale = await _onlinePortalContext.MemberProducts.Where(p => p.ProductId == sales.ProductId && p.UserId == userId && p.IsOrdered == false).SingleOrDefaultAsync();
+            if (existingProductSale != null)
             {
-                Product = product,
-                User = user,
-                Quantity = sales.Quantity
-            };
-            await _onlinePortalContext.MemberProducts.AddAsync(salesProduct);
+                existingProductSale.Quantity += sales.Quantity;
+                _onlinePortalContext.MemberProducts.Update(existingProductSale);
+
+            }
+            else
+            {
+                var salesProduct = new MemberProduct
+                {
+                    Product = product,
+                    UserId = userId,
+                    Quantity = sales.Quantity
+                };
+                await _onlinePortalContext.MemberProducts.AddAsync(salesProduct);
+            }
+
             await _onlinePortalContext.SaveChangesAsync();
 
             return 1;
         }
+        public async Task<List<MemberProduct>> GetOrderedItems(string userId)
+        {
+            var orders = await _onlinePortalContext.MemberProducts.Where(p => p.User.Id == userId && p.IsOrdered==false).ToListAsync();
+            return orders;
+
+            }
+
+       
     }
-}
+    }

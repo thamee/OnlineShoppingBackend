@@ -7,3 +7,12 @@ C:\Users\Dell\source\repos\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\ne
 C:\Users\Dell\source\repos\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.csproj.CoreCompileInputs.cache
 C:\Users\Dell\source\repos\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.dll
 C:\Users\Dell\source\repos\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.pdb
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\bin\Debug\netcoreapp3.1\OnlineShoppingDbContext.deps.json
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\bin\Debug\netcoreapp3.1\OnlineShoppingDbContext.dll
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\bin\Debug\netcoreapp3.1\OnlineShoppingDbContext.pdb
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.csprojAssemblyReference.cache
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.AssemblyInfoInputs.cache
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.AssemblyInfo.cs
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.dll
+C:\Users\Dell\source\repos\OnlineShopping\OnlinePortal.Api\OnlineShoppingDbContext\obj\Debug\netcoreapp3.1\OnlineShoppingDbContext.pdb

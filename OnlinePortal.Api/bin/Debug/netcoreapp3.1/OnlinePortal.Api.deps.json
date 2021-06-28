@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "OnlinePortal.Api/1.0.0": {
         "dependencies": {
+          "IdentityModel": "3.1.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.16",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
@@ -315,6 +316,20 @@
         },
         "compile": {
           "OnlinePortal.Api.dll": {}
+        }
+      },
+      "IdentityModel/3.1.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/IdentityModel.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/IdentityModel.dll": {}
         }
       },
       "jose-jwt/3.1.1": {
@@ -3469,6 +3484,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "IdentityModel/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r+mZKYQTL33k8ehcma3tmK0qEqM8OzO/cDZvqEorkmTrsnBccvUyNlfDZ+Ozgw9kR+YJP7J9v4+JBLEBekK0aQ==",
+      "path": "identitymodel/3.1.0",
+      "hashPath": "identitymodel.3.1.0.nupkg.sha512"
     },
     "jose-jwt/3.1.1": {
       "type": "package",
