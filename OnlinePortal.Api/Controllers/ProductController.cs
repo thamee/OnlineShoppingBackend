@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlinePortal.Api.Models.Product;
 using OnlinePortal.Api.Services.Products;
@@ -24,6 +25,7 @@ namespace OnlinePortal.Api.Controllers
 
        
         [HttpPost("product")]
+        [Authorize]
         public async Task<int> CreateProductsAsync([FromBody] CreateProductDto product)
         {
                 return await _productService.CreateProductAsync(product);
@@ -42,12 +44,14 @@ namespace OnlinePortal.Api.Controllers
         }
 
         [HttpPatch("products/{id}")]
+        [Authorize]
         public async Task<int> UpdateProductAsync([FromBody] UpdateProductDto product)
         {
             return await _productService.UpdateProductAsync(product);
         }
 
         [HttpDelete("products/{id}")]
+        [Authorize]
         public async Task<int> DeleteProductAsync(int Id)
         {
             return await _productService.DeleteProductAsync(Id);

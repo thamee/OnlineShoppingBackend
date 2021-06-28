@@ -5070,11 +5070,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\source\\repos\\OnlinePortal.Api\\OnlineShoppingDbContext\\OnlineShoppingDbContext.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\source\\repos\\OnlineShopping\\OnlinePortal.Api\\OnlineShoppingDbContext\\OnlineShoppingDbContext.csproj",
       "projectName": "OnlineShoppingDbContext",
-      "projectPath": "C:\\Users\\Dell\\source\\repos\\OnlinePortal.Api\\OnlineShoppingDbContext\\OnlineShoppingDbContext.csproj",
+      "projectPath": "C:\\Users\\Dell\\source\\repos\\OnlineShopping\\OnlinePortal.Api\\OnlineShoppingDbContext\\OnlineShoppingDbContext.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\source\\repos\\OnlinePortal.Api\\OnlineShoppingDbContext\\obj\\",
+      "outputPath": "C:\\Users\\Dell\\source\\repos\\OnlineShopping\\OnlinePortal.Api\\OnlineShoppingDbContext\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",

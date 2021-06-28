@@ -14,6 +14,7 @@ using OnlinePortal.Api.Services;
 using OnlinePortal.Api.Services.Categories;
 using OnlinePortal.Api.Services.Identity;
 using OnlinePortal.Api.Services.Products;
+using OnlinePortal.Api.Services.Sales;
 using OnlineShoppingDbContext;
 using OnlineShoppingDbContext.Entities.Identity;
 using Swashbuckle.AspNetCore.Swagger;
@@ -52,6 +53,7 @@ namespace OnlinePortal.Api
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<ISalesService, SalesService>();
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddIdentity<ApplicationUser, ApplicationRole>()
               .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -85,6 +87,7 @@ namespace OnlinePortal.Api
                 x.SaveToken = true;
                 x.TokenValidationParameters = tokenValidationParameters;
             });
+            services.AddHttpContextAccessor();
             //Add Identity
 
 
@@ -93,25 +96,27 @@ namespace OnlinePortal.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
+
+
+
 
             app.UseCors(x => x
                  .AllowAnyMethod()
                  .AllowAnyHeader()
                  .SetIsOriginAllowed(origin => true) // allow any origin
                  .AllowCredentials()); // allow credentials
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
+                                       // Enable middleware to serve generated Swagger as a JSON endpoint.
 
-            app.UseAuthorization();
             app.UseAuthentication();
-
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
