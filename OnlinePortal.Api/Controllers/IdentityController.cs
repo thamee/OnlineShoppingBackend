@@ -14,6 +14,7 @@ namespace OnlinePortal.Api.Controllers
 
         private readonly IIdentityService _identityService;
 
+
         public IdentityController(IIdentityService identityService)
         {
             _identityService = identityService;
@@ -79,6 +80,38 @@ namespace OnlinePortal.Api.Controllers
                 RefreshToken = authResponce.RefreshToken
             });
         }
-    }
+
+        [HttpPost("registerSellers")]
+        public async Task<ActionResult> RegisterSellers([FromBody] UserRegistrationRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new AuthFailedResponce
+                {
+                    Errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage))
+                });
+            }
+            var newUser = new ApplicationUser
+            {
+                Email = request.Email,
+                UserName = request.Email,
+                Id = Guid.NewGuid().ToString()
+            };
+            var authResponce = await _identityService.RegisterSellersAsync(request);
+            if (!authResponce.Status)
+            {
+                return BadRequest(new AuthFailedResponce
+                {
+                    Errors = authResponce.Errors
+                });
+            }
+
+            return Ok(new AuthSuccessResponce
+            {
+                Token = authResponce.Token,
+                RefreshToken = authResponce.RefreshToken
+            });
+        }
+        }
     
 }

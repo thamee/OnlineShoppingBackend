@@ -44,5 +44,17 @@ namespace OnlinePortal.Api.Controllers
             var userId = User.GetId();
             return await _salesService.GetOrderedItems(userId);
         }
+
+
+        [HttpPost("order")]
+        [Authorize]
+        public async Task<int> OrderSalesAsync()
+        {
+            var userId = User.GetId();
+            return await _salesService.ConformOrderedItems(userId);
+        }
+
+
+       
     }
 }

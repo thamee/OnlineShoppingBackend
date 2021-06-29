@@ -51,11 +51,21 @@ namespace OnlinePortal.Api.Services.Sales
         }
         public async Task<List<MemberProduct>> GetOrderedItems(string userId)
         {
-            var orders = await _onlinePortalContext.MemberProducts.Where(p => p.User.Id == userId && p.IsOrdered==false).ToListAsync();
+            var orders = await _onlinePortalContext.MemberProducts.Include(p=>p.Product).Where(p => p.User.Id == userId && p.IsOrdered==false).ToListAsync();
             return orders;
 
             }
 
-       
+        public async Task<int> ConformOrderedItems(string userId)
+        {
+            var orders = await _onlinePortalContext.MemberProducts.Where(p => p.User.Id == userId && p.IsOrdered == false).ToListAsync();
+            orders.ForEach(a => a.IsOrdered = true);
+            await _onlinePortalContext.SaveChangesAsync();
+            return 1;
+
+        }
+
+
+
     }
-    }
+}

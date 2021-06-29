@@ -12,5 +12,6 @@ namespace OnlinePortal.Api.Services.Sales
     {
         Task<int> CreateSalesAsync(CreateSalesDto sales, string userId);
         Task<List<MemberProduct>> GetOrderedItems(string userId);
+        Task<int> ConformOrderedItems(string userId);
     }
 }

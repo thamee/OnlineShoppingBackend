@@ -12,5 +12,6 @@ namespace OnlinePortal.Api.Services.Identity
 
         Task<AuthenticationResult> LoginAsync(UserLoginRequest request);
 
+        Task<AuthenticationResult> RegisterSellersAsync(UserRegistrationRequest request);
     }
 }

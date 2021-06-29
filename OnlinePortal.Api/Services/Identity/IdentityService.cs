@@ -72,6 +72,55 @@ namespace OnlinePortal.Api.Services
 
         }
 
+        public async Task<AuthenticationResult> RegisterSellersAsync(UserRegistrationRequest request)
+        {
+            bool x = await _roleManager.RoleExistsAsync("Sellers");
+            if (!x)
+            {
+                var role = new ApplicationRole
+                {
+                    Name = "Sellers",
+                    Id = Guid.NewGuid().ToString()
+                };
+                await _roleManager.CreateAsync(role);
+                   
+            }
+            var existingUser = await _userManager.FindByEmailAsync(request.Email);
+
+            if (existingUser != null)
+            {
+                return new AuthenticationResult
+                {
+                    Errors = new[] { "User with the Email Address Already Exits" }
+                };
+            }
+
+            var newUser = new ApplicationUser
+            {
+                Email = request.Email,
+                UserName = request.Email,
+                Id = Guid.NewGuid().ToString()
+
+            };
+
+            var createdUser = _userManager.CreateAsync(newUser, request.Password);
+            await _userManager.AddToRoleAsync(newUser, "Sellers");
+
+            if (!createdUser.Result.Succeeded)
+            {
+                return new AuthenticationResult
+                {
+                    Errors = createdUser.Result.Errors.Select(x => x.Description)
+                };
+            }
+
+
+
+
+            return await GenerateAuthenticationResultForUserAsync(newUser);
+
+        }
+
         private async Task<AuthenticationResult> GenerateAuthenticationResultForUserAsync(ApplicationUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
